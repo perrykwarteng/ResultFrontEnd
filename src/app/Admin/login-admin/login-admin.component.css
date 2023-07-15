@@ -1,0 +1,18 @@
+main {
+  background: #cfe2ff;
+}
+
+.container .school-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .schlogo {
+  height: 5rem;
+  width: 5rem;
+  margin-top: 1rem;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
