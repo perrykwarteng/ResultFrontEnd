@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './Admin/pages/admin-dashboard/admin-dashboard.component';
 import { LoginAdminComponent } from './Admin/login-admin/login-admin.component';
-import { AppComponent } from './app.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ManageTeachersComponent } from './Admin/pages/manage-teachers/manage-teachers.component';
 import { ManageStudentsComponent } from './Admin/pages/manage-students/manage-students.component';
@@ -12,7 +11,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
   },
   {
