@@ -1,0 +1,203 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="../../../assets/schlogo.jpeg" alt="" />
+      <span class="d-none d-lg-block">Result App</span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div>
+
+  <div class="search-bar">
+    <form class="search-form d-flex align-items-center">
+      <input type="text" placeholder="Search" />
+      <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+    </form>
+  </div>
+
+  <div class="semester">
+    <h3>Term:<span>One</span></h3>
+  </div>
+  <div class="year">
+    <h3>Year:<span>2023</span></h3>
+  </div>
+
+  <div class="profile">
+    <h3>welcome {{ adminUser.superAdmin.first_name }}</h3>
+  </div>
+</header>
+
+<!-- sidebar -->
+<aside id="sidebar" class="sidebar navbar-collapse">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a routerLink="/admin" class="nav-link">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/manageTeachers" class="nav-link collapsed">
+        <i class="bi bi-card-list"></i>
+        <span>Manage Teachers</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/manageStudents" class="nav-link collapsed">
+        <i class="bi bi-person-circle"></i>
+        <span>Manage Students</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/manageSubjects" class="nav-link collapsed">
+        <i class="bi bi-journals"></i>
+        <span>Manage Subjects</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/manageClass" class="nav-link collapsed">
+        <i class="bi bi-house-add"></i>
+        <span>Manage Class</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/results" class="nav-link collapsed">
+        <i class="bi bi-envelope-paper"></i>
+        <span>Results</span>
+      </a>
+    </li>
+
+    <!-- <li class="nav-item">
+      <a routerLink="/gradeScale" class="nav-link collapsed">
+        <i class="bi bi-escape"></i>
+        <span>Grade Scale</span>
+      </a>
+    </li> -->
+
+    <li class="nav-item">
+      <a routerLink="/settings" class="nav-link collapsed">
+        <i class="bi bi-gear"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+
+    <li class="nav-item" (click)="logout()">
+      <a routerLink="/settings" class="nav-link collapsed">
+        <i class="bi bi-box-arrow-left"></i>
+        <span>Logout</span>
+      </a>
+    </li>
+  </ul>
+</aside>
+
+<!-- Main content -->
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h2>Manage Classes</h2>
+  </div>
+
+  <!-- Button trigger modal -->
+  <div class="btn-teacher">
+    <button
+      type="button"
+      class="btn btn-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#addteacher"
+    >
+      Add Class
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="addteacher"
+    tabindex="-1"
+    aria-labelledby="teacherModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="teacherModalLabel">
+            Add a Class Here...
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <!-- Forms -->
+          <form
+            [formGroup]="classForm"
+            (ngSubmit)="createClass()"
+            class="row g-3"
+          >
+            <!-- Class Code -->
+            <div class="col-md-12">
+              <label for="c_code" class="form-label">Class Code</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="classCode"
+                id="c_code"
+                placeholder="eg; C2b"
+              />
+            </div>
+            <!-- Class Name -->
+            <div class="col-md-12">
+              <label for="c_name" class="form-label">Class Name</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="className"
+                id="c_name"
+                placeholder="eg; class 2b"
+              />
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-btn">Add</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="display">
+    <div class="card">
+      <div class="card-body">
+        <table id="myTable" class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Class Code</th>
+              <th scope="col">Class Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let datas of data; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ datas.classCode }}</td>
+              <td>{{ datas.className }}</td>
+              <td>
+                <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-trash"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>

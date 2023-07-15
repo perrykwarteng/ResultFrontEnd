@@ -1,0 +1,61 @@
+/* Main */
+.main {
+    position: relative;
+    top: 20px;
+    width: 50%;
+    left: 23%;
+  }
+  .main .pagetitle {
+    color: #012970;
+  }
+  
+  @media (min-width: 800px) {
+    .main {
+      width: 75%;
+      margin: 4rem 1rem;
+    }
+  }
+  
+  .main .btn-teacher {
+    position: relative;
+  
+    margin: 2rem 0rem 1rem 0rem;
+  }
+  .main .btn-teacher .btn-btn {
+    background: #012970;
+    color: #fff;
+    margin: 0 1rem 0 0;
+  }
+  .main .btn-teacher .btn-btn:hover {
+    background: #1472ff;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  .main .btn-teacher .btn-two {
+    background: #1472ff;
+    color: #fff;
+    margin: 0 1rem 0 0;
+  }
+  .main .btn-teacher .btn-two:hover {
+    background: #012970;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .main .display .card {
+    background: #fff;
+    box-shadow: 0px 0px 20px 1px #012a7025;
+  }
+  .display .card table {
+    color: #012970;
+    text-align: center;
+  }
+  
+  .display .bi-pencil-square {
+    color: #0762ff;
+  }
+  .display .bi-trash {
+    color: #ff0707;
+    margin: 0rem 0rem 0rem 0.5rem;
+  }
+  

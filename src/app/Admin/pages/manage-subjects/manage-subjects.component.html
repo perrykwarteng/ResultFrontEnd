@@ -1,0 +1,108 @@
+<app-admin-tempalate></app-admin-tempalate>
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h2>Manage Subjects</h2>
+  </div>
+
+  <!-- Button trigger modal -->
+  <div class="btn-teacher">
+    <button
+      type="button"
+      class="btn btn-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#addteacher"
+    >
+      Add Subjects
+    </button>
+    <button type="button" class="btn btn-two">Assign Subject</button>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="addteacher"
+    tabindex="-1"
+    aria-labelledby="teacherModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="teacherModalLabel">
+            Add a Subject Here...
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <!-- Forms -->
+          <form
+            [formGroup]="subjectForm"
+            (ngSubmit)="createSubject()"
+            class="row g-3"
+          >
+            <!-- first name -->
+            <div class="col-md-12">
+              <label for="f_name" class="form-label">Subject Code</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="subjectCode"
+                id="f_name"
+                placeholder="eg; john"
+              />
+            </div>
+            <!-- other name -->
+            <div class="col-md-6">
+              <label for="o_name" class="form-label"> Subjectr Name</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="subjectName"
+                id="o_name"
+                placeholder="eg; kofi"
+              />
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-btn">Add</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="display">
+    <div class="card">
+      <div class="card-body">
+        <table id="myTable" class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Sibject Code</th>
+              <th scope="col">Sibject Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let datas of res; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ datas.subjectCode }}</td>
+              <td>{{ datas.subjectName }}</td>
+              <td>
+                <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-trash"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>

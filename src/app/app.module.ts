@@ -10,9 +10,25 @@ import { AppComponent } from './app.component';
 import { TokenInterceptorService } from './service/token-interceptor.service';
 import { AdminDashboardComponent } from './Admin/pages/admin-dashboard/admin-dashboard.component';
 import { LoginAdminComponent } from './Admin/login-admin/login-admin.component';
+import { ManageTeachersComponent } from './Admin/pages/manage-teachers/manage-teachers.component';
+import { ManageStudentsComponent } from './Admin/pages/manage-students/manage-students.component';
+import { ManageSubjectsComponent } from './Admin/pages/manage-subjects/manage-subjects.component';
+import { ManageClassesComponent } from './Admin/pages/manage-classes/manage-classes.component';
+import { ErrorComponent } from './error/error.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, AdminDashboardComponent, LoginAdminComponent],
+  declarations: [
+    AppComponent,
+    AdminDashboardComponent,
+    LoginAdminComponent,
+    ManageTeachersComponent,
+    ManageStudentsComponent,
+    ManageSubjectsComponent,
+    ManageClassesComponent,
+    ErrorComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
