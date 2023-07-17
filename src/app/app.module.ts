@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgToastModule } from 'ng-angular-popup';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -16,6 +17,7 @@ import { ManageSubjectsComponent } from './Admin/pages/manage-subjects/manage-su
 import { ManageClassesComponent } from './Admin/pages/manage-classes/manage-classes.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
+import { LoginTeacherComponent } from './Teacher/login-teacher/login-teacher.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { HomeComponent } from './home/home.component';
     ManageClassesComponent,
     ErrorComponent,
     HomeComponent,
+    LoginTeacherComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgToastModule,
   ],
   providers: [
     {

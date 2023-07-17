@@ -30,10 +30,10 @@ export class LoginAdminComponent {
           if (res.admin.role == 'superAdmin') {
             localStorage.setItem('token', res.token);
             this.route.navigate(['/admin']);
-            Swal.fire('You are welcome' + this.response.admin.first_name);
+            Swal.fire('Any fool can use a computer');
           } else {
             console.log('error');
-            Swal.fire('Sorry Invalid Input');
+            Swal.fire('Any fool can use a computer');
           }
         }
       });

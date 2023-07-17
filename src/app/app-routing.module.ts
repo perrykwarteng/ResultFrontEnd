@@ -8,6 +8,7 @@ import { ManageStudentsComponent } from './Admin/pages/manage-students/manage-st
 import { ManageSubjectsComponent } from './Admin/pages/manage-subjects/manage-subjects.component';
 import { ManageClassesComponent } from './Admin/pages/manage-classes/manage-classes.component';
 import { HomeComponent } from './home/home.component';
+import { LoginTeacherComponent } from './Teacher/login-teacher/login-teacher.component';
 
 const routes: Routes = [
   {
@@ -18,10 +19,10 @@ const routes: Routes = [
     path: 'adminLogin',
     component: LoginAdminComponent,
   },
-  // {
-  //   path: 'teacherLogin',
-  //   component: TeacherLoginComponent,
-  // },
+  {
+    path: 'teacherLogin',
+    component: LoginTeacherComponent,
+  },
   {
     path: 'admin',
     component: AdminDashboardComponent,
