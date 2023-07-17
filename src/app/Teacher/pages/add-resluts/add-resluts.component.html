@@ -1,0 +1,203 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="../../../assets/schlogo.jpeg" alt="" />
+      <span class="d-none d-lg-block">Result App</span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div>
+
+  <div class="search-bar">
+    <form class="search-form d-flex align-items-center">
+      <input type="text" placeholder="Search" />
+      <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+    </form>
+  </div>
+
+  <div class="semester">
+    <h3>Term:<span>One</span></h3>
+  </div>
+  <div class="year">
+    <h3>Year:<span>2023</span></h3>
+  </div>
+
+  <div class="profile">
+    <h3>welcome {{ data.teacher.first_name }}</h3>
+  </div>
+</header>
+
+<!-- sidebar -->
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a routerLink="/subjectTeacher" class="nav-link">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/addResults" class="nav-link collapsed">
+        <i class="bi bi-envelope-paper"></i>
+        <span>Add Results</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/settings" class="nav-link collapsed">
+        <i class="bi bi-gear"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+
+    <!-- <li class="nav-item" (click)="logout()">
+          <a class="nav-link collapsed">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Logout</span>
+          </a>
+        </li> -->
+  </ul>
+</aside>
+
+<!-- Main Content -->
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h2>Add Results</h2>
+  </div>
+
+  <!-- Button trigger modal -->
+  <div class="btn-teacher">
+    <button
+      type="button"
+      class="btn btn-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#addteacher"
+    >
+      Add Subject Marks
+    </button>
+    <!-- <button type="button" class="btn btn-two">Assign Subject</button> -->
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="addteacher"
+    tabindex="-1"
+    aria-labelledby="teacherModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="teacherModalLabel">
+            Add Student Result...
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <!-- Forms -->
+          <form class="row g-3">
+            <!-- first name -->
+            <label for="teacher" class="form-label">Select Student</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              formControlName="studentIndex"
+            >
+              <option selected>Select Student</option>
+              <option
+                *ngFor="let student of students"
+                value="{{ student.studentIndex }}"
+              >
+                {{ student.first_name }}
+              </option>
+            </select>
+
+            <label for="teacher" class="form-label">Select Subject</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              formControlName="subjectCode"
+            >
+              <option selected>Select Subject</option>
+              <option
+                *ngFor="let subject of sub"
+                value="{{ subject.subjectCode }}"
+              >
+                {{ subject.subjectName }}
+              </option>
+            </select>
+
+            <!-- last name -->
+            <div class="col-md-6">
+              <label for="l_name" class="form-label">Class Score</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="class_score"
+                id="l_name"
+                placeholder="eg;34"
+              />
+            </div>
+
+            <!-- Phone number -->
+            <div class="col-md-6">
+              <label for="number" class="form-label">Exams Score</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="exam_score"
+                id="number"
+                placeholder="eg; 79"
+              />
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-btn">Add</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <section class="display">
+  </main>
+  
+<main id="main" class="main">
+  
+
+ 
+    <div class="card">
+      <div class="card-body">
+        <table id="myTable" class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Sibject Code</th>
+              <th scope="col">Sibject Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let datas of res; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ datas.subjectCode }}</td>
+              <td>{{ datas.subjectName }}</td>
+              <td>
+                <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-trash"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section> -->
+</main>

@@ -1,0 +1,291 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="../../../assets/schlogo.jpeg" alt="" />
+      <span class="d-none d-lg-block">Result App</span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div>
+
+  <div class="search-bar">
+    <form class="search-form d-flex align-items-center">
+      <input type="text" placeholder="Search" />
+      <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+    </form>
+  </div>
+
+  <div class="semester">
+    <h3>Term:<span>One</span></h3>
+  </div>
+  <div class="year">
+    <h3>Year:<span>2023</span></h3>
+  </div>
+
+  <div class="profile">
+    <h3>welcome {{ data.teacher.first_name }}</h3>
+  </div>
+</header>
+
+<!-- sidebar -->
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a routerLink="/classTeacher" class="nav-link">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/addRemarks" class="nav-link collapsed">
+        <i class="bi bi-envelope-paper"></i>
+        <span>Add Remarks</span>
+      </a>
+    </li>
+
+    <!-- <li class="nav-item">
+            <a routerLink="/gradeScale" class="nav-link collapsed">
+              <i class="bi bi-escape"></i>
+              <span>Grade Scale</span>
+            </a>
+          </li> -->
+
+    <!-- <li class="nav-item">
+      <a routerLink="/settings" class="nav-link collapsed">
+        <i class="bi bi-gear"></i>
+        <span>Settings</span>
+      </a>
+    </li> -->
+
+    <li class="nav-item" (click)="logout()">
+            <a class="nav-link collapsed">
+              <i class="bi bi-box-arrow-left"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+  </ul>
+</aside>
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h2>Add Students Remarks</h2>
+  </div>
+
+  <!-- Button trigger modal -->
+  <div class="btn-teacher">
+    <button
+      type="button"
+      class="btn btn-btn"
+      data-bs-toggle="modal"
+      data-bs-target="#addremarks"
+    >
+      Add Remarks
+    </button>
+    <!-- <button type="button" class="btn btn-two">Assign Class</button> -->
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="addremarks"
+    tabindex="-1"
+    aria-labelledby="remarksModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="remaarksModalLabel">
+            Add Student Remarks...
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <!-- Forms -->
+          <form
+            [formGroup]="remarksForm"
+            (ngSubmit)="remarksSubmit()"
+            class="row g-3"
+          >
+            <!-- index -->
+            <div class="col-md-12">
+              <label for="teacher" class="form-label">Select Student</label>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                formControlName="studentIndex"
+              >
+                <option selected>Select Student</option>
+                <option
+                  *ngFor="let student of data"
+                  value="{{ student.studentIndex }}"
+                >
+                  {{ student.first_name }}
+                </option>
+              </select>
+            </div>
+
+            <!-- first name -->
+            <div class="col-md-12">
+              <label for="f_name" class="form-label">Attendance</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="attendance"
+                id="f_name"
+                placeholder="eg; 35"
+              />
+            </div>
+            <!-- other name -->
+            <div class="col-md-12">
+              <label for="o_name" class="form-label">Out Of</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="outOf"
+                id="o_name"
+                placeholder="eg; 50"
+              />
+            </div>
+            <!-- last name -->
+            <div class="col-md-12">
+              <label for="l_name" class="form-label">Promoted To</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="promoted"
+                id="l_name"
+                placeholder="eg;class 4"
+              />
+            </div>
+
+            <!-- Phone number -->
+            <div class="col-md-12">
+              <label for="g" class="form-label">Conduct</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="conduct"
+                id="g"
+                placeholder="eg; conduct"
+              />
+            </div>
+            <!-- Phone number -->
+            <div class="col-md-12">
+              <label for="number" class="form-label">Attitude</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="attitude"
+                id="number"
+                placeholder="eg; attitude"
+              />
+            </div>
+
+            <div class="col-md-12">
+              <label for="number" class="form-label">Interest</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="interest"
+                id="number"
+                placeholder="eg; interest"
+              />
+            </div>
+
+            <!-- location -->
+            <div class="col-12">
+              <label for="location" class="form-label"
+                >Class Teacher's Remarks</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                formControlName="classTeacherRemarks"
+                id="location"
+                placeholder="remarks"
+              />
+            </div>
+
+            <div class="col-12">
+              <label for="location" class="form-label"
+                >Head Teacher's Remarks</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                formControlName="headTeacherRemarks"
+                id="location"
+                placeholder="remarks"
+              />
+            </div>
+
+            <div class="col-12">
+              <label for="location" class="form-label">Date</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="date"
+                id="location"
+                placeholder="04/07/2023"
+              />
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-btn">Add</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="display">
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Index Number</th>
+              <th scope="col">Name</th>
+              <th scope="col">Guidance</th>
+              <th scope="col">Guidance Number</th>
+              <th scope="col">Class</th>
+              <th scope="col">Location</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let datas of res; let i = index">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ datas.studentIndex }}</td>
+              <td>
+                {{
+                  datas.first_name +
+                    " " +
+                    datas.other_name +
+                    " " +
+                    datas.last_name
+                }}
+              </td>
+              <td>{{ datas.guidance }}</td>
+              <td>{{ datas.guidance_number }}</td>
+              <td>{{ datas.data | date }}</td>
+              <td>{{ datas.location }}</td>
+              <td>
+                <i class="bi bi-pencil-square"></i>
+                <i class="i bi-eye-fill"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>

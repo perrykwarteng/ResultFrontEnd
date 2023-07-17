@@ -18,6 +18,7 @@ import { ManageClassesComponent } from './Admin/pages/manage-classes/manage-clas
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { LoginTeacherComponent } from './Teacher/login-teacher/login-teacher.component';
+import { ClassTeacherComponent } from './Teacher/class-teacher/class-teacher.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LoginTeacherComponent } from './Teacher/login-teacher/login-teacher.com
     ErrorComponent,
     HomeComponent,
     LoginTeacherComponent,
+    ClassTeacherComponent,
   ],
   imports: [
     BrowserModule,
