@@ -1,0 +1,198 @@
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="../../../assets/schlogo.jpeg" alt="" />
+        <span class="d-none d-lg-block">Result App</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+  
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center">
+        <input type="text" placeholder="Search" />
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+  
+    <div class="semester">
+      <h3>Term:<span>One</span></h3>
+    </div>
+    <div class="year">
+      <h3>Year:<span>2023</span></h3>
+    </div>
+  
+    <div class="profile">
+      <h3>welcome {{ data.teacher.first_name }}</h3>
+    </div>
+  </header>
+  
+  <!-- sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+      <li class="nav-item">
+        <a routerLink="/subjectTeacher" class="nav-link">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+  
+      <li class="nav-item">
+        <a routerLink="/addResults" class="nav-link collapsed">
+          <i class="bi bi-envelope-paper"></i>
+          <span>Add Results</span>
+        </a>
+      </li>
+  
+      <!-- <li class="nav-item">
+          <a routerLink="/gradeScale" class="nav-link collapsed">
+            <i class="bi bi-escape"></i>
+            <span>Grade Scale</span>
+          </a>
+        </li> -->
+  
+      <!-- <li class="nav-item">
+        <a routerLink="/settings" class="nav-link collapsed">
+          <i class="bi bi-gear"></i>
+          <span>Settings</span>
+        </a>
+      </li> -->
+  
+      <li class="nav-item" (click)="logout()">
+        <a class="nav-link collapsed">
+          <i class="bi bi-box-arrow-left"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+  
+  <!-- Main Content -->
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h2><span>Teacher's Dashboard</span></h2>
+    </div>
+  
+    <section class="section-card">
+      <div class="row">
+        <div class="col">
+          <div class="card greet-card">
+            <div class="card-body">
+              <div class="card-title">
+                <h5>Hi {{ data.teacher.first_name }}</h5>
+                <p>Ready to start your day with some decks?</p>
+              </div>
+              <div class="card-image">
+                <img [src]="[greetImg]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- <section class="details">
+      <div class="teacher-details">
+        <div class="teacher-text">
+          <h4>Teachers</h4>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Start Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Brandon Jacob</td>
+                  <td>Designer</td>
+                  <td>2016-05-25</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Bridie Kessler</td>
+                  <td>Developer</td>
+                  <td>2014-12-05</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Ashleigh Langosh</td>
+                  <td>Finance</td>
+                  <td>2011-08-12</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Angus Grady</td>
+                  <td>HR</td>
+                  <td>2012-06-11</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Raheem Lehner</td>
+                  <td>Dynamic Division Officer</td>
+                  <td>2011-04-19</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="student-details">
+        <div class="teacher-text">
+          <h4>Students</h4>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Start Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Brandon Jacob</td>
+                  <td>Designer</td>
+                  <td>2016-05-25</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Bridie Kessler</td>
+                  <td>Developer</td>
+                  <td>2014-12-05</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Ashleigh Langosh</td>
+                  <td>Finance</td>
+                  <td>2011-08-12</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Angus Grady</td>
+                  <td>HR</td>
+                  <td>2012-06-11</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Raheem Lehner</td>
+                  <td>Dynamic Division Officer</td>
+                  <td>2011-04-19</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section> -->
+  </main>
+  

@@ -19,6 +19,7 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { LoginTeacherComponent } from './Teacher/login-teacher/login-teacher.component';
 import { ClassTeacherComponent } from './Teacher/class-teacher/class-teacher.component';
+import { SubjectTecherComponent } from './Teacher/subject-techer/subject-techer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ClassTeacherComponent } from './Teacher/class-teacher/class-teacher.com
     HomeComponent,
     LoginTeacherComponent,
     ClassTeacherComponent,
+    SubjectTecherComponent,
   ],
   imports: [
     BrowserModule,
