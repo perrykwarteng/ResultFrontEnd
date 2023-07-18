@@ -58,11 +58,11 @@
     </li> -->
 
     <li class="nav-item" (click)="logout()">
-            <a class="nav-link collapsed">
-              <i class="bi bi-box-arrow-left"></i>
-              <span>Logout</span>
-            </a>
-          </li>
+      <a class="nav-link collapsed">
+        <i class="bi bi-box-arrow-left"></i>
+        <span>Logout</span>
+      </a>
+    </li>
   </ul>
 </aside>
 <main id="main" class="main">
@@ -106,11 +106,10 @@
         </div>
         <div class="modal-body">
           <!-- Forms -->
-          <form
-            [formGroup]="remarksForm"
-            (ngSubmit)="remarksSubmit()"
-            class="row g-3"
-          >
+
+          <!-- [formGroup]="remarksForm"
+          (ngSubmit)="remarksSubmit()" -->
+          <form class="row g-3">
             <!-- index -->
             <div class="col-md-12">
               <label for="teacher" class="form-label">Select Student</label>

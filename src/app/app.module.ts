@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgToastModule } from 'ng-angular-popup';
-
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +19,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginTeacherComponent } from './Teacher/login-teacher/login-teacher.component';
 import { ClassTeacherComponent } from './Teacher/class-teacher/class-teacher.component';
 import { SubjectTecherComponent } from './Teacher/subject-techer/subject-techer.component';
+import { AddRemarksComponent } from './Teacher/pages/add-remarks/add-remarks.component';
+import { AddReslutsComponent } from './Teacher/pages/add-resluts/add-resluts.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { SubjectTecherComponent } from './Teacher/subject-techer/subject-techer.
     LoginTeacherComponent,
     ClassTeacherComponent,
     SubjectTecherComponent,
+    AddRemarksComponent,
+    AddReslutsComponent,
   ],
   imports: [
     BrowserModule,
