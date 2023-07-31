@@ -30,10 +30,15 @@ export class LoginAdminComponent {
           if (res.admin.role == 'superAdmin') {
             localStorage.setItem('token', res.token);
             this.route.navigate(['/admin']);
-            Swal.fire('Any fool can use a computer');
+            Swal.fire('You are welcome back');
           } else {
             console.log('error');
-            Swal.fire('Any fool can use a computer');
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+              footer: '<a href="">Why do I have this issue?</a>',
+            });
           }
         }
       });

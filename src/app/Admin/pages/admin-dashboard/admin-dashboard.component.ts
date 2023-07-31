@@ -10,9 +10,9 @@ import { AuthService } from 'src/app/service/auth.service';
 export class AdminDashboardComponent {
   greetImg: string = '../../../assets/greet.png';
   isDispaly: boolean = false;
-  toggle() {
-    this.isDispaly = !this.isDispaly;
-  }
+  // toggle() {
+  //   this.isDispaly = !this.isDispaly;
+  // }
 
   adminUser: any;
   constructor(private admin: AdminService, private auth: AuthService) {}

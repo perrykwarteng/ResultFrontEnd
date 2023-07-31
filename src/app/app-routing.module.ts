@@ -51,7 +51,7 @@ const routes: Routes = [
   // {
   //   path: 'results',
   //   component: ResultsComponent,
-  //   canActivate: [AuthGuard],
+  // canActivate: [AuthGuard],
   // },
   // {
   //   path: 'settings',
